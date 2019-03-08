@@ -1,0 +1,23 @@
+<template>
+
+    <lightning-card title="Employee Tile">  
+        <template if:true={employee}>
+            <div class="slds-p-around_small">
+                <p>
+                    {employee.Name}
+                </p>
+                <p>
+                    {employee.Role__c}
+                </p>
+                <p>
+                    <lightning-formatted-email value={employee.Email__c}></lightning-formatted-email>
+                </p>
+                </p>
+                <p>
+                    <lightning-formatted-phone value={employee.Phone__c}></lightning-formatted-phone>
+                </p>
+            </div>
+        </template>
+    </lightning-card>
+    
+</template>

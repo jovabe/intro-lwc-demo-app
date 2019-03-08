@@ -1,0 +1,31 @@
+<template>
+
+    <lightning-card title="Employee Table"> 
+
+        <lightning-input class="slds-m-around_small"
+            type="search" label="Find Employee"
+            onchange={handleSearch} value={employeeSearchTerm}></lightning-input>
+
+        <template if:true={employees}>
+            <table class="slds-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={employees} for:item="employee">
+                        <tr key={employee.Id} data-id={employee.Id} onmousedown={handleEmployeeSelect}>
+                            <td>{employee.Name}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </template>
+        <template if:false={employees}>
+            <p> No employees found </p>
+        </template>
+
+    </lightning-card>
+    
+</template>
